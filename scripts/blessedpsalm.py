@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Jun  4 16:00:26 2020
+# """
+# Created on Thu Jun  4 16:00:26 2020
 
-@author: bdp
-"""
+# @author: bdp
+# """
+Name = 'Samuel Ogunsola'
+Language = 'Python'
+ID =  'HNG-00800'
+Email = 'sammy4excellence97@gmail.com' 
+print ("Hello World, this is " + Name + " with HNGi7 ID " + ID + " using " + Language + " for stage 2 task. " + Email)
+# def profile_format(Name, Language, ID, Email):
+#     return  ('Hello World, this is ' + (Name) + ' with HNGi7 ID ' + (ID) + ' using ' + (Language) + ' for stage 2 task. ' + (Email))
 
-
-def profile_format(first_name, last_name, language, hng_id, email):
-    full_name = first_name + ' ' + last_name
-    return print(f"Hello world, I am {full_name} with HNGi7 ID {hng_id} using {language} for stage 2 task.{email}")
-
-profile_format('Samuel', 'Ogunsola', 'Python, HTML and CSS', 'HNG-00800','sammy4excellence97@gmail.com')

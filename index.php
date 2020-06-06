@@ -9,7 +9,7 @@ if (!isset($_GET['json'])) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="Team-Superman Task 2">
     <meta name="author" content="">
     <title>Team Superman- Task 2</title>
 
@@ -104,10 +104,14 @@ if (!isset($_GET['json'])) {
         }
 
         td:nth-of-type(5):before {
-          content: "Language";
+          content: "Email";
         }
 
         td:nth-of-type(6):before {
+          content: "Language";
+        }
+
+        td:nth-of-type(7):before {
           content: "ID";
         }
       }
@@ -144,11 +148,11 @@ if (!isset($_GET['json'])) {
           </tr>
         </thead>
         <tbody>
-          <?php 
+          <?php
           $files = array_filter(scandir('scripts'), function ($script) {
             return !is_dir('scripts/' . $script);
           }); // To remove "." and  ".." from the array output os scabdir
-          
+
           foreach ($files as $file) {
                 $submitted++;
                 $name = "";
@@ -164,11 +168,11 @@ if (!isset($_GET['json'])) {
                   $language = "Python";
                 } elseif (preg_match('/.js$/i', $file)) {
                   $output = shell_exec('node scripts/' . $file. ' 2>&1');
-                  $language = "Javascript";
+                  $language = "JavaScript";
                 }else{
                   $language = "Null";
                 }
-            
+
                 if (isset($output)) {
                   $result = [];
                   preg_match('/^Hello World, this is ([a-zA-Z -]*) with HNGi7 ID ((HNG-|)[0-9]{1,5}) using (Python|PHP|JavaScript|Node.js) for stage 2 task.(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}))$/i', $output, $result);
@@ -228,7 +232,7 @@ if (!isset($_GET['json'])) {
   $files = array_filter(scandir('scripts'), function ($script) {
     return !is_dir('scripts/' . $script);
   }); // To remove "." and  ".." from the array output os scabdir
-  
+
   $final = [];
   if ($files) {
     $submitted = 0;
@@ -250,7 +254,7 @@ if (!isset($_GET['json'])) {
       }else{
           $script['language'] = "Null";
       }
-  
+
       if (isset($output)) {
         $result = [];
         preg_match('/^Hello World, this is ([a-zA-Z -]*) with HNGi7 ID ((HNG-|)[0-9]{1,5}) using (Python|PHP|JavaScript|Node.js) for stage 2 task.(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}))$/i', $output, $result);
@@ -269,7 +273,7 @@ if (!isset($_GET['json'])) {
           $script['output'] = substr($output, 0, strpos($output, "."));
           $fails++;
         }
-  
+
         array_push($final, $script);
       }
     }
